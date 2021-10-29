@@ -16,4 +16,4 @@ Steps:
 
 Features:
 * Pagination
-* View currently watching/reading anime/manga, completed anime/manga, planning to watch/read manga, paused anime/manga, dropped anime/manga, and repeat watching/reading anime/manga.
+* View anime/manga in tabular format. Includes the cover image and the title with a link to its Anilist page.
