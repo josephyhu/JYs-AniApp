@@ -11,7 +11,7 @@ var options = {
         'grant_type': 'authorization_code',
         'client_id': '6814',
         'client_secret': 'af41U2eAh1v7n7qg0Ng3U8AUVg89cWNoH8wTOBZo',
-        'redirect_uri': 'https://anilist.co/api/v2/oauth/pin', // http://example.com/callback
+        'redirect_uri': 'https://anilist.co/api/v2/oauth/pin',
         'code': '{code}'
     }
 };

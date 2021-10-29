@@ -16,6 +16,10 @@
         <a href='https://anilist.co/api/v2/oauth/authorize?client_id=6814&redirect_uri=https://anilist.co/api/v2/oauth/pin&response_type=code' target="_blank">Login with AniList</a>
     </div>
     <main>
+        <input type="radio" id="anime" name="type" value="ANIME"><label for="anime">Anime</label>
+        <input type="radio" id="manga" name="type" value="MANGA"><label for="manga">Manga</label><br>
+        <input type="text" id="search">
+        <button type="submit" id="btnSearch">Search</button><br>
         <select id="status">
             <option value="CURRENT">Current</option>
             <option value="COMPLETED">Completed</option>
@@ -23,9 +27,8 @@
             <option value="PAUSED">Paused</option>
             <option value="DROPPED">Dropped</option>
             <option value="REPEATING">Repeating</option>
-        </select><br>
-        <button type="submit" id="btnAnime">Click here to view your anime list.</button><br>
-        <button type="submit" id="btnManga">Click here to view your manga list.</button><br>
+        </select>
+        <button type="submit" id="btnList">View your anime/manga list.</button><br>
         <label for="page">Page #</label>
         <input type="number" id="page"><button type="submit" id="btnPage">Go to page.</button>
         <section></section>
