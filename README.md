@@ -16,4 +16,4 @@ Steps:
 
 Features:
 * Pagination
-* View anime/manga in tabular format. Includes the cover image and the title with a link to its Anilist page.
+* View anime/manga in tabular format. Includes cover image and title with a link to its Anilist page.
