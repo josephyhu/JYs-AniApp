@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+a {
+    color: yellow;
+}
+a:hover, a:focus {
+    opacity: 50%;
+}
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin: 0 auto
+}
+
+button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
