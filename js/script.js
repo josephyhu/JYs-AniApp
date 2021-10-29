@@ -101,7 +101,7 @@ btnPage.addEventListener('click', e => {
     let search = document.querySelector('#search').value;
     let page = document.querySelector('#page').value;
     searchFunction(e, type, search, page);
-})
+});
 
 function getMediaList(event, type, status, page = 1) {
     event.preventDefault();
@@ -109,7 +109,7 @@ function getMediaList(event, type, status, page = 1) {
         query ($userId: Int, $page: Int, $perPage: Int, $type: MediaType, $status: MediaListStatus) {
             Page (page: $page, perPage: $perPage) {
                 pageInfo {
-                    currentPage
+                    currentPage,
                     lastPage
                 },
                 mediaList (userId: $userId, type: $type, status: $status)  {
@@ -174,16 +174,16 @@ function getMediaList(event, type, status, page = 1) {
 
 btnList.addEventListener('click', e => {
     let type = document.querySelector('input[name="type"]:checked').value;
-    let status = document.querySelector('#status').value
+    let status = document.querySelector('#status').value;
     getMediaList(e, type, status);
 });
 
 btnPage.addEventListener('click', e => {
     let type = document.querySelector('input[name="type"]:checked').value;
-    let status = document.querySelector('#status').value
-    let page = document.querySelector('#page').value
+    let status = document.querySelector('#status').value;
+    let page = document.querySelector('#page').value;
     getMediaList(e, type, status, page);
-})
+});
 
 function checkStatus(res) {
     if (res.ok) {
