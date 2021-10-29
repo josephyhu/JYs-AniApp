@@ -1,4 +1,4 @@
-const accessToken = '{token}';
+let accessToken = '{token}';
 const url = 'https://graphql.anilist.co';
 const login = document.querySelector('#login');
 const main = document.querySelector('main');
@@ -30,10 +30,6 @@ fetch(url, {
     .then(res => res.json())
     .then(data => userId = data.data.Viewer.id)
     .catch(err => console.error('You have to be authenticated to use this app.', err))
-
-// function getAuthenticatedUser(data) {
-//     userId = data;
-// }
 
 function getAnimeList(event, status, page = 1) {
     event.preventDefault();
