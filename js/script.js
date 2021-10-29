@@ -28,12 +28,12 @@ fetch(url, {
 })
     .then(checkStatus)
     .then(res => res.json())
-    .then(data => getAuthenticatedUser(data.data.Viewer.id))
+    .then(data => userId = data.data.Viewer.id)
     .catch(err => console.error('You have to be authenticated to use this app.', err))
 
-function getAuthenticatedUser(data) {
-    userId = data;
-}
+// function getAuthenticatedUser(data) {
+//     userId = data;
+// }
 
 function getAnimeList(event, status, page = 1) {
     event.preventDefault();
@@ -99,12 +99,13 @@ function getAnimeList(event, status, page = 1) {
 btnAnime.addEventListener('click', e => {
     let status = document.querySelector('#status').value
     getAnimeList(e, status)
-    btnPage.addEventListener('click', e => {
-        let status = document.querySelector('#status').value
-        let page = document.querySelector('#page').value
-        getAnimeList(e, status, page)
-    })
 });
+
+btnPage.addEventListener('click', e => {
+    let status = document.querySelector('#status').value
+    let page = document.querySelector('#page').value
+    getAnimeList(e, status, page)
+})
 
 function getMangaList(event, status, page = 1) {
     event.preventDefault()
@@ -170,12 +171,13 @@ function getMangaList(event, status, page = 1) {
 btnManga.addEventListener('click', e => {
     let status = document.querySelector('#status').value
     getMangaList(e, status)
-    btnPage.addEventListener('click', e => {
-        let status = document.querySelector('#status').value
-        let page = document.querySelector('#page').value
-        getMangaList(e, status, page)
-    })
 });
+
+btnPage.addEventListener('click', e => {
+    let status = document.querySelector('#status').value
+    let page = document.querySelector('#page').value
+    getMangaList(e, status, page)
+})
 
 function checkStatus(res) {
     if (res.ok) {
