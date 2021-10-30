@@ -4,7 +4,6 @@ const login = document.querySelector('#login');
 const main = document.querySelector('main');
 let userId;
 const btnList = document.querySelector('#btnList');
-const btnPage = document.querySelector('#btnPage');
 const btnSearch = document.querySelector('#btnSearch');
 const section = document.querySelector('section');
 
