@@ -14,8 +14,10 @@ table, th, td {
     border-collapse: collapse;
     margin: 0 auto
 }
-
 button {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.required {
+    color: red;
 }
