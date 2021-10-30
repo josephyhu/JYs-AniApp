@@ -1,11 +1,12 @@
 let accessToken = '{token}';
 const url = 'https://graphql.anilist.co';
 const login = document.querySelector('#login');
-const main = document.querySelector('main');
+const loggedIn = document.querySelector('#loggedIn');
 let userId;
 const btnList = document.querySelector('#btnList');
 const btnSearch = document.querySelector('#btnSearch');
-const section = document.querySelector('section');
+const searchList = document.querySelector('#searchList');
+const personalList = document.querySelector('#personalList');
 
 let getAuthenticatedUserQuery = `
     query {
@@ -25,7 +26,7 @@ fetch(url, {
         query: getAuthenticatedUserQuery
     }),
 })
-    .then(checkStatus)
+    .then(checkAuthenticatedStatus)
     .then(res => res.json())
     .then(data => userId = data.data.Viewer.id)
     .catch(err => console.error('You have to be authenticated to use this app.', err))
@@ -85,8 +86,9 @@ function searchFunction(event, type, search, page) {
                 }
             }
             html += `<tfoot>Page: ${data.data.Page.pageInfo.currentPage} of ${data.data.Page.pageInfo.lastPage}</tfoot></tbody></table>`
-            section.innerHTML = html;
+            searchList.innerHTML = html;
         })
+        .catch(err => console.error('There was a problem. Try again.', err))
 }
 
 btnSearch.addEventListener('click', e => {
@@ -160,7 +162,7 @@ function getMediaList(event, type, status, page) {
                 }
             }
             html += `<tfoot>Page: ${data.data.Page.pageInfo.currentPage} of ${data.data.Page.pageInfo.lastPage}</tfoot></tbody></table>`
-            section.innerHTML = html;
+            personalList.innerHTML = html;
         })
         .catch(err => console.error('There was a problem. Try again.', err))
 }
@@ -172,12 +174,20 @@ btnList.addEventListener('click', e => {
     getMediaList(e, type, status, pageList);
 });
 
-function checkStatus(res) {
+function checkAuthenticatedStatus(res) {
     if (res.ok) {
         login.innerHTML = '';
         return Promise.resolve(res);
     } else {
-        main.innerHTML = '';
+        loggedIn.innerHTML = '';
+        return Promise.reject(new Error(res.statusText));
+    }
+}
+
+function checkStatus(res) {
+    if (res.ok) {
+        return Promise.resolve(res);
+    } else {
         return Promise.reject(new Error(res.statusText));
     }
 }

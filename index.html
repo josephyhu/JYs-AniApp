@@ -12,10 +12,10 @@
     <header>
         <h1>JY's AniApp</h1>
     </header>
-    <div id="login">
-        <a href='https://anilist.co/api/v2/oauth/authorize?client_id=6814&redirect_uri=https://anilist.co/api/v2/oauth/pin&response_type=code' target="_blank">Login with AniList</a>
-    </div>
     <main>
+        <div id="login">
+            <a href="https://anilist.co/api/v2/oauth/authorize?client_id=6814&response_type=token" target="_blank">Login with AniList</a>
+        </div>
         <form action="#" method="post">
             <label>Type<span class="required">*</span></label>
             <input type="radio" id="anime" name="type" value="ANIME" required><label for="anime">Anime</label>
@@ -28,23 +28,28 @@
                 <input type="number" id="pageSearch" value="1" required>
                 <button type="submit" id="btnSearch">Search</button><br>
             </fieldset>
-            <fieldset>
-                <legend>Your List</legend>
-                <label for="status">Status<span class="required">*</span></label>
-                <select id="status" required>
-                    <option value="CURRENT">Current</option>
-                    <option value="COMPLETED">Completed</option>
-                    <option value="PLANNING">Planning</option>
-                    <option value="PAUSED">Paused</option>
-                    <option value="DROPPED">Dropped</option>
-                    <option value="REPEATING">Repeating</option>
-                </select>
-                <label for="pageList">Page #<span class="required">*</span></label>
-                <input type="number" id="pageList" value="1" required>
-                <button type="submit" id="btnList">View your anime/manga list.</button><br>
-            </fieldset>
         </form>
-        <section></section>
+        <section id="searchList"></section>
+        <div id="loggedIn">
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Your List</legend>
+                    <label for="status">Status<span class="required">*</span></label>
+                    <select id="status" required>
+                        <option value="CURRENT">Current</option>
+                        <option value="COMPLETED">Completed</option>
+                        <option value="PLANNING">Planning</option>
+                        <option value="PAUSED">Paused</option>
+                        <option value="DROPPED">Dropped</option>
+                        <option value="REPEATING">Repeating</option>
+                    </select>
+                    <label for="pageList">Page #<span class="required">*</span></label>
+                    <input type="number" id="pageList" value="1" required>
+                    <button type="submit" id="btnList">View your anime/manga list.</button><br>
+                </fieldset>
+            </form>
+            <section id="personalList"></section>
+        </div>
     </main>
     <script src="js/script.js"></script>
 </body>
