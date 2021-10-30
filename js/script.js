@@ -31,7 +31,7 @@ fetch(url, {
     .then(data => userId = data.data.Viewer.id)
     .catch(err => console.error('You have to be authenticated to use this app.', err))
 
-function searchFunction(event, type, search, page = 1) {
+function searchFunction(event, type, search, page) {
     event.preventDefault();
     let query = `
         query ($page: Int, $perPage: Int, $type: MediaType, $search: String) {
@@ -93,17 +93,11 @@ function searchFunction(event, type, search, page = 1) {
 btnSearch.addEventListener('click', e => {
     let type = document.querySelector('input[name="type"]:checked').value;
     let search = document.querySelector('#search').value;
-    searchFunction(e, type, search);
+    let pageSearch = document.querySelector('#pageSearch').value;
+    searchFunction(e, type, search, pageSearch);
 });
 
-btnPage.addEventListener('click', e => {
-    let type = document.querySelector('input[name="type"]:checked').value;
-    let search = document.querySelector('#search').value;
-    let page = document.querySelector('#page').value;
-    searchFunction(e, type, search, page);
-});
-
-function getMediaList(event, type, status, page = 1) {
+function getMediaList(event, type, status, page) {
     event.preventDefault();
     let query = `
         query ($userId: Int, $page: Int, $perPage: Int, $type: MediaType, $status: MediaListStatus) {
@@ -175,14 +169,8 @@ function getMediaList(event, type, status, page = 1) {
 btnList.addEventListener('click', e => {
     let type = document.querySelector('input[name="type"]:checked').value;
     let status = document.querySelector('#status').value;
-    getMediaList(e, type, status);
-});
-
-btnPage.addEventListener('click', e => {
-    let type = document.querySelector('input[name="type"]:checked').value;
-    let status = document.querySelector('#status').value;
-    let page = document.querySelector('#page').value;
-    getMediaList(e, type, status, page);
+    let pageList = document.querySelector('#pageList').value;
+    getMediaList(e, type, status, pageList);
 });
 
 function checkStatus(res) {
