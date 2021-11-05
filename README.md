@@ -1,3 +1,5 @@
+# DEPRECATED GO HERE INSTEAD: https://github.com/josephyhu/JYs-AniApp-v1
+
 # JYs-AniApp
 Either display searched anime/manga or display the logged in user's personal anime/manga list.
 
